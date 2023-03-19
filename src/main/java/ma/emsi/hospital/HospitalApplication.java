@@ -2,14 +2,13 @@ package ma.emsi.hospital;
 
 import ma.emsi.hospital.entities.Patient;
 import ma.emsi.hospital.repositories.PatientRepository;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-
 import java.util.Date;
+
 @SpringBootApplication
 public class HospitalApplication implements CommandLineRunner {
 
