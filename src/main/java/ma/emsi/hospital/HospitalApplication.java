@@ -64,7 +64,5 @@ public class HospitalApplication implements CommandLineRunner {
         System.out.println("Date de naissance : " + patient.getDateNaissance());
         System.out.println("Malade            : " + patient.isMalade());
         }
-
-
     }
 }
