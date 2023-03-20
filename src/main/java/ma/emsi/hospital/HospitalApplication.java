@@ -28,7 +28,7 @@ public class HospitalApplication implements CommandLineRunner {
 
         System.out.println("\nConsulter tous les patients");
 
-        Page<Patient> patients = patientRepository.findAll(PageRequest.of(1,5));
+        Page<Patient> patients = patientRepository.findAll(PageRequest.of(0,5));
         patients.forEach(p -> {
             System.out.println("==============================");
             System.out.println("Id                : " + p.getId());
@@ -48,18 +48,29 @@ public class HospitalApplication implements CommandLineRunner {
             System.out.println("Date de naissance : " + patient.getDateNaissance());
             System.out.println("Malade            : " + patient.isMalade());
         }
-        patientRepository.deleteById(1L);
-        System.out.println("********* Patient deleted ! **********");
-        patientRepository.save(new Patient(null,"Mohamed",new Date(),false,22));
         if (patient != null) {
             patient.setScore(99);
+
         patientRepository.save(patient);
+        }
         System.out.println("******* Updated patient *******");
         System.out.println("==============================");
-        System.out.println("Id                : " + patient.getId());
-        System.out.println("Name              : " + patient.getName());
-        System.out.println("Score             : " + patient.getScore());
-        System.out.println("Date de naissance : " + patient.getDateNaissance());
-        System.out.println("Malade            : " + patient.isMalade());
+        if (patient != null) {
+            System.out.println("Id                : " + patient.getId());
+            System.out.println("Name              : " + patient.getName());
+            System.out.println("Score             : " + patient.getScore());
+            System.out.println("Date de naissance : " + patient.getDateNaissance());
+            System.out.println("Malade            : " + patient.isMalade());
         }
-    }}
+        patientRepository.deleteById(1L);
+        System.out.println("********* Patient deleted ! **********");
+        patientRepository.findAll(PageRequest.of(0,5)).forEach(p -> {
+            System.out.println("==============================");
+            System.out.println("Id                : " + p.getId());
+            System.out.println("Name              : " + p.getName());
+            System.out.println("Score             : " + p.getScore());
+            System.out.println("Date de naissance : " + p.getDateNaissance());
+            System.out.println("Malade            : " + p.isMalade());
+        });
+    }
+}
