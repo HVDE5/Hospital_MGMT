@@ -22,9 +22,9 @@ public class HospitalApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        patientRepository.save(new Patient(null,"Mohamed",new Date(),false,22));
-        patientRepository.save(new Patient(null,"Amine",new Date(),false,52));
-        patientRepository.save(new Patient(null,"Ali",new Date(),true,12));
+        patientRepository.save(new Patient(null,"Mohamed",new Date(),false,22,null));
+        patientRepository.save(new Patient(null,"Amine",new Date(),false,52,null));
+        patientRepository.save(new Patient(null,"Ali",new Date(),true,12,null));
 
         System.out.println("\nConsulter tous les patients");
 
